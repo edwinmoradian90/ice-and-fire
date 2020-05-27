@@ -34,3 +34,8 @@ about the spefic book, person, or aspect of Game of Thrones.
 - Deploy apps (Heroku, Netlify)
 - Use linters (code standards)
 - Maintain professional Github repos
+
+## Design 
+
+Main page: Root, Books, characters, and houses.
+After Selection: Detailed search after filer.
