@@ -1,31 +1,25 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Header from '../../components/header/Header'
-import List from '../../components/list/List'
+import MainList from '../../components/list/MainList'
 
 function Main(props) {
-    const categories = [
-        {
-            name: 'books',
-            title: 'Books',
-            description: 'This is about books.'
-        },
-        {
-            name: 'characters',
-            title: 'Characters',
-            description: 'This is about characters.'
-        },
-        {
-            name: 'authors',
-            title: 'Authors',
-            description: 'This is about authors.'
-        }
-    ]
+    const [data, setData] = useState([])
+    useEffect(() => {
+        axios.get('https://anapioficeandfire.com/api')
+            .then(res => {
+                setData(res)
+                console.log('data set')
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }, [])
 
     return (
         <div>
             <Header />
-            <List categories={categories} {...props} />
+            <MainList data={data} {...props} />
         </div>
     )
 }

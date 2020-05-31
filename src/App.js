@@ -2,15 +2,20 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import Main from "./views/main/Main"
 import Categories from './views/categories/Categories'
+import Display from './views/display/Display'
 import "./App.css"
 
 function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path='/:categories/:subCategory' component={Categories} />
-        <Route exact path='/:categories' component={Categories} />
         <Route exact path='/' component={Main} />
+        <Route exact path='/books' component={Categories} />
+        <Route exact path='/characters' component={Categories} />
+        <Route exact path='/houses' component={Categories} />
+        <Route path='/books/:category' component={Display} />
+        <Route path='/characters/:category' component={Display} />
+        <Route path='/houses/:category' component={Display} />
       </Switch>
     </Router>
   );
