@@ -21,8 +21,19 @@ function Categories(props) {
     }, [])
     return (
         <>
-            <Header category={category} />
-            <CategoryList data={data} category={category} />
+            {data
+                ?
+                (
+                    <div>
+                        <Header category={category} />
+                        <CategoryList data={data} category={category} />
+                    </div>
+                )
+                :
+                (
+                    <p> loading...</p>
+                )
+            }
         </>
     )
 }
