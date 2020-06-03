@@ -3,6 +3,7 @@ import MainListItem from './MainListItem'
 
 function MainList(props) {
     const { data } = props.data
+    console.log(props)
     return (
         <>
             {data

@@ -1,20 +1,37 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
+import { getMain } from '../../redux/actions/mainActions'
 import Header from '../../components/header/Header'
 import MainList from '../../components/list/MainList'
+import {
+    FETCH_MAIN_REQUEST,
+    FETCH_MAIN_SUCCESS,
+    FETCH_MAIN_FAILURE
+} from '../../redux/constants/constants'
+const url = 'https://anapioficeandfire.com/api'
 
 function Main(props) {
-    const [data, setData] = useState([])
+    const dispatch = useDispatch()
+    let data = useSelector(state => state.mainReducer.data) || []
     useEffect(() => {
-        axios.get('https://anapioficeandfire.com/api')
+        dispatch({ type: FETCH_MAIN_REQUEST })
+        axios.get(url)
             .then(res => {
-                setData(res)
-                console.log('data set')
+                dispatch({
+                    type: FETCH_MAIN_SUCCESS,
+                    payload: res
+                })
+                console.log(res)
             })
             .catch(err => {
-                console.log(err)
+                dispatch({
+                    type: FETCH_MAIN_FAILURE,
+                    payload: err
+                })
             })
     }, [])
+    console.log(data)
 
     return (
         <div>

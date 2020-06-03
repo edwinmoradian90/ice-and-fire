@@ -17,7 +17,9 @@ function CategoryListItem(props) {
             <Link to={newUrl}>
                 <ul>
                     <li className={name ? 'title' : 'd_none'}> {name} </li>
-                    <li className={numberOfPages ? 'numberOfPages' : 'd_none'}>{numberOfPages} pages</li>
+                    <li className={numberOfPages ? 'numberOfPages' : 'd_none'}>
+                        {numberOfPages} pages
+                    </li>
                     <li className={released ? 'released' : 'd_none'}>{released}</li>
                 </ul>
                 <hr />
