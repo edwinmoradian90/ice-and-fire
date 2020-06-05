@@ -14,7 +14,6 @@ function Categories(props) {
     const category = props.match.path
     const dispatch = useDispatch()
     const data = useSelector(state => state.categoriesReducer.data) || []
-    console.log(data)
     useEffect(() => {
         dispatch({
             type: FETCH_CATEGORIES_REQUEST
@@ -23,17 +22,24 @@ function Categories(props) {
             .then(res => {
                 dispatch({
                     type: FETCH_CATEGORIES_SUCCESS,
-                    payload: res
+                    payload: {
+                        data: res.data,
+                        currentUrl: category,
+                    }
                 })
             })
             .catch(err => {
                 dispatch({
                     type: FETCH_CATEGORIES_FAILURE,
-                    payload: err
+                    payload: {
+                        error: err,
+                        currentUrl: category
+                    }
                 })
                 console.log(err)
             })
     }, [])
+    console.log(data)
     return (
         <>
             {data
@@ -41,7 +47,9 @@ function Categories(props) {
                 (
                     <div>
                         <Header category={category} />
-                        <CategoryList data={data} category={category} />
+                        <CategoryList data={data}
+                            category={category}
+                        />
                     </div>
                 )
                 :

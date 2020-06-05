@@ -5,6 +5,9 @@ import {
 } from '../constants/constants'
 
 const initialState = {
+    currentUrl: '',
+    name: '',
+    id: 0,
     loading: false,
     data: [],
     error: '',
@@ -21,13 +24,16 @@ export default function categoriesReducer(state = initialState, action) {
             return {
                 ...state,
                 loading: false,
-                data: action.payload
+                data: action.payload.data,
+                currentUrl: action.payload.currentURL
             }
         case FETCH_CATEGORIES_FAILURE:
+            let { error, currentUrl } = action.payload
             return {
                 ...state,
                 loading: false,
-                error: action.payload
+                error,
+                currentUrl
             }
         default:
             return state;

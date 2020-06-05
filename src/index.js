@@ -9,7 +9,6 @@ import thunk from 'redux-thunk'
 
 const middlewares = [thunk]
 const store = createStore(rootReducer, applyMiddleware(...middlewares))
-console.log(store)
 
 ReactDOM.render(
   <React.StrictMode>

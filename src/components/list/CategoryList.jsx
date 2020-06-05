@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import CategoryListItem from './CategoryListItem'
 
 function CategoryList(props) {
@@ -7,7 +7,7 @@ function CategoryList(props) {
         <>
             {data.map((item, i) => {
                 return (
-                    <li key={i}><CategoryListItem item={item} category={category} /></li>
+                    <li key={i}><CategoryListItem id={i + 1} item={item} category={category} /></li>
                 )
             })}
         </>
