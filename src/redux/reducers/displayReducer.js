@@ -13,13 +13,13 @@ const initialState = {
 }
 
 export default function displayReducer(state = initialState, action) {
-    const { currentUrl } = action.payload
+    const { currentUrl, id } = action.payload
     switch (action.type) {
         case FETCH_DISPLAY_REQUEST:
             return {
                 ...state,
+                currentUrl,
                 loading: true,
-                currentUrl
             }
         case FETCH_DISPLAY_SUCCESS:
             return {

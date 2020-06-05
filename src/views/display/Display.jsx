@@ -4,9 +4,10 @@ import axios from 'axios'
 
 function Display(props) {
     const currentUrl = props.location.pathname.split(('/'))
+    const apiUrl = `/${currentUrl[1]}`
     console.log(currentUrl)
     useEffect(() => {
-        axios.get(currentUrl)
+        axios.get()
     })
 
     return (
