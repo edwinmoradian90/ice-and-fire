@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 function Header(props) {
-    const { category } = props
+    const { category, name } = props
     const [title, setTitle] = useState('Ice and Fire')
 
     useEffect(() => {
@@ -12,7 +12,7 @@ function Header(props) {
 
     return (
         <div className="header">
-            {title}
+            {title ? title : name}
         </div>
     )
 }

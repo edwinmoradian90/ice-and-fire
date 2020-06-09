@@ -13,9 +13,9 @@ function App() {
         <Route exact path='/books' component={Categories} />
         <Route exact path='/characters' component={Categories} />
         <Route exact path='/houses' component={Categories} />
-        <Route path='/books/:category' component={Display} />
-        <Route path='/characters/:category' component={Display} />
-        <Route path='/houses/:category' component={Display} />
+        <Route path='/books/:id/:category' component={Display} />
+        <Route path='/characters/:id/:category' component={Display} />
+        <Route path='/houses/:id/:category' component={Display} />
       </Switch>
     </Router>
   );

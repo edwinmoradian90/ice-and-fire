@@ -3,23 +3,27 @@ import { Link } from 'react-router-dom'
 
 function CategoryListItem(props) {
     const { category } = props
-    const { name, numberOfPages, released } = props.item
-    const convertedName = name.toLowerCase().split('').map(element => {
+    const { name, numberOfPages, released, aliases } = props.item
+    console.log(props.items)
+    let availableName = name ? name : aliases[0]
+    const convertedName = availableName.toLowerCase().split('').map(element => {
         if (element === ' ') {
             return element = '-'
         }
         return element
     })
-    const newUrl = `${category}/${convertedName.join('')}`
-    console.log(props.id)
+    const { id, getId } = props
+    const newUrl = `${category}/${id}/${convertedName.join('')}`
+
     return (
-        <Link to={newUrl} id={props.id}>
-            <ul>
-                <li className={name ? 'title' : 'd_none'}> {name} </li>
-                <li className={numberOfPages ? 'numberOfPages' : 'd_none'}>
+        <Link to={newUrl} onClick={getId} id={id}>
+            <ul id={id}>
+                <li id={id} className={name ? 'title' : 'd_none'}> {name} </li>
+                <li id={id} className={aliases ? 'aliases' : 'd_none'}> {aliases}</li>
+                <li id={id} className={numberOfPages ? 'numberOfPages' : 'd_none'}>
                     {numberOfPages} pages
                     </li>
-                <li className={released ? 'released' : 'd_none'}>{released}</li>
+                <li id={id} className={released ? 'released' : 'd_none'}>{released}</li>
             </ul>
             <hr />
         </Link>
