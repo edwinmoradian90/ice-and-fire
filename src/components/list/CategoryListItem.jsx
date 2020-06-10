@@ -1,19 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { convertName } from '../../utils/helpers'
 
 function CategoryListItem(props) {
     const { category } = props
     const { name, numberOfPages, released, aliases } = props.item
-    console.log(props.items)
     let availableName = name ? name : aliases[0]
-    const convertedName = availableName.toLowerCase().split('').map(element => {
-        if (element === ' ') {
-            return element = '-'
-        }
-        return element
-    })
+    const convertedName = convertName(availableName)
     const { id, getId } = props
-    const newUrl = `${category}/${id}/${convertedName.join('')}`
+    const newUrl = `${category}/${id}/${convertedName}`
 
     return (
         <Link to={newUrl} onClick={getId} id={id}>

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 
 export default function Characters(props) {
-    console.log(props)
     const {
         aliases,
         books,
@@ -18,7 +17,11 @@ export default function Characters(props) {
         <div className="characters">
             Characters
             <ul className="charactersList">
-                <li className="aliases">{aliases}</li>
+                {aliases ? aliases.map((alias, i) => (
+                    <li className={`alias ${alias}`}>
+                        {alias}
+                    </li>
+                )) : null}
             </ul>
             <ul className="characterBooks">
             </ul>

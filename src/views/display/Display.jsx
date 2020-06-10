@@ -47,7 +47,7 @@ function Display(props) {
                     }
                 })
             })
-    }, [])
+    }, [apiUrl])
     console.log(currentUrl[1])
 
     return (
