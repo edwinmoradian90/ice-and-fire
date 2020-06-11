@@ -2,13 +2,17 @@ import {
     FETCH_CATEGORIES_FAILURE,
     FETCH_CATEGORIES_REQUEST,
     FETCH_CATEGORIES_SUCCESS,
-    GET_ELEMENT_ID
+    GET_ELEMENT_ID,
+    PREV_PAGE,
+    NEXT_PAGE
 } from '../constants/constants'
 
 const initialState = {
     currentUrl: '',
     name: '',
     id: 0,
+    page: 1,
+    pageSize: 20,
     loading: false,
     data: [],
     error: '',
@@ -41,11 +45,22 @@ export default function categoriesReducer(state = initialState, action) {
             }
         case GET_ELEMENT_ID:
             let { id } = action.payload
-            console.log(id, 'ELEMENT ID ')
             return {
                 ...state,
                 id,
                 loading: false
+            }
+        case NEXT_PAGE:
+            return {
+                ...state,
+                page: state.page + 1
+            }
+        case PREV_PAGE:
+            return {
+                ...state,
+                page: state.page > 0
+                    ? state.page - 1
+                    : state.page
             }
         default:
             console.log('Default')

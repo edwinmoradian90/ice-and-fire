@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 export default function Characters(props) {
     const {
@@ -18,7 +18,7 @@ export default function Characters(props) {
             Characters
             <ul className="charactersList">
                 {aliases ? aliases.map((alias, i) => (
-                    <li className={`alias ${alias}`}>
+                    <li key={i} className={`alias ${alias}`}>
                         {alias}
                     </li>
                 )) : null}
@@ -34,7 +34,6 @@ export default function Characters(props) {
                 <li>{father}</li>
                 <li>{playedBy}</li>
             </ul>
-
         </div >
     )
 }

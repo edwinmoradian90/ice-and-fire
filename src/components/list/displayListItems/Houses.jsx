@@ -6,6 +6,8 @@ import axios from 'axios'
 export default function Houses(props) {
     const [heirName, setHeirName] = useState('')
     const [heirId, setHeirId] = useState('')
+    const [currentLordId, setCurrentLordId] = useState('')
+    const [currentLordName, setCurrentLordName] = useState('')
     const {
         name,
         region,
@@ -17,11 +19,11 @@ export default function Houses(props) {
         swornMemebers
     } = props.items.data || 'loading...'
 
-    const splitUrl = heir => {
-        if (heir) {
-            const newUrl = heir.split('/')
+    const splitUrl = url => {
+        if (url) {
+            const newUrl = url.split('/')
             console.log(newUrl[newUrl.length - 1])
-            setHeirId(newUrl[newUrl.length - 1])
+            return newUrl[newUrl.length - 1]
         }
     }
 
@@ -38,11 +40,21 @@ export default function Houses(props) {
                 .then(res => {
                     const { name } = res.data
                     setHeirName(name)
-                    splitUrl(heir)
+                    setHeirId(splitUrl(heir))
                 })
                 .catch(err => console.log(err))
         }
-    }, [])
+        if (currentLord) {
+            axios.get(currentLord)
+                .then(res => {
+                    const { name } = res.data
+                    setCurrentLordName(name)
+                    setCurrentLordId(splitUrl(currentLord))
+                })
+                .catch(err => console.log(err))
+        }
+
+    }, [currentLord, heir])
 
     return (
         <div className="houses">
@@ -52,7 +64,10 @@ export default function Houses(props) {
             {heirName ? (
                 <div className="heir">
                     House heir: {' '}
-                    <Link to={`/characters/${heirId}/${convertName(heirName)}`}>
+                    <Link
+                        className='heirName'
+                        to={`/characters/${heirId}/${convertName(heirName)}`}
+                    >
                         {heirName}
                     </Link>
                 </div>
@@ -60,7 +75,24 @@ export default function Houses(props) {
                     <p className="heir"> House heir: Not Available </p>
                 )
             }
-            <p className="currentLord">Current Lord: {isEmpty(currentLord)}</p>
+            <div className="currentLord">
+                Current Lord: {' '}
+                {currentLord
+                    ?
+                    (
+                        <Link
+                            className='currentLordName'
+                            to={`/characters/${currentLordId}/${convertName(currentLordName)}`}
+                        >
+                            {currentLordName || 'loading...'}
+                        </Link>
+                    )
+                    :
+                    (
+                        <span className="currentLordName">{isEmpty(currentLordName)}</span>
+                    )
+                }
+            </div>
         </div >
     )
 }

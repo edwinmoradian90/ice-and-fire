@@ -4,7 +4,9 @@ import {
     FETCH_CATEGORIES_REQUEST,
     FETCH_CATEGORIES_SUCCESS,
     FETCH_CATEGORIES_FAILURE,
-    GET_ELEMENT_ID
+    GET_ELEMENT_ID,
+    NEXT_PAGE,
+    PREV_PAGE
 } from '../../redux/constants/constants'
 import Header from '../../components/header/Header'
 import CategoryList from '../../components/list/CategoryList'
@@ -12,13 +14,13 @@ import axios from 'axios'
 import { url } from '../../config/config'
 
 function Categories(props) {
-    console.log(props.match.path)
     const category = props.match.path
     const dispatch = useDispatch()
     const data = useSelector(state => state.categoriesReducer.data) || []
     const loading = useSelector(state => state.categoriesReducer.loading)
+    const page = useSelector(state => state.categoriesReducer.page)
+    const pageSize = useSelector(state => state.categoriesReducer.pageSize)
     const id = useSelector(state => state.categoriesReducer.id)
-    console.log(loading)
 
     const getId = e => {
         const { id } = e.target
@@ -30,6 +32,19 @@ function Categories(props) {
         })
     }
 
+    const nextPage = () => {
+        dispatch({
+            type: NEXT_PAGE,
+        })
+    }
+
+    const prevPage = () => {
+        console.log('previous page')
+        dispatch({
+            type: PREV_PAGE,
+        })
+    }
+
     useEffect(() => {
         dispatch({
             type: FETCH_CATEGORIES_REQUEST,
@@ -37,7 +52,7 @@ function Categories(props) {
                 data: ''
             }
         })
-        axios.get(`${url}/${category}`)
+        axios.get(`${url}/${category}?page=${page}&pageSize=${pageSize}`)
             .then(res => {
                 console.log(res)
                 dispatch({
@@ -57,7 +72,7 @@ function Categories(props) {
                     }
                 })
             })
-    }, [])
+    }, [page])
 
     return (
         <>
@@ -71,6 +86,27 @@ function Categories(props) {
                             data={data}
                             category={category}
                         />
+                        {
+                            category === '/characters' || category === '/houses'
+                                ?
+                                (
+                                    <div className='navigationButtons'>
+                                        <span
+                                            onClick={() => nextPage()}
+                                            className='nextPage'>
+                                            Next
+                                        </span>
+                                        <span
+                                            onClick={() => prevPage()}
+                                            className="prevPage">
+                                            Previous Page
+                                        </span>
+                                    </div>
+
+                                )
+                                :
+                                null
+                        }
                     </div>
                 )
                 :
