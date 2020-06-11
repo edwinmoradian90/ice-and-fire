@@ -1,18 +1,23 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 function Header(props) {
-    const { category, name } = props
+    const { category } = props
     const [title, setTitle] = useState('Ice and Fire')
+    const [categoryName, setCategoryName] = useState('')
 
     useEffect(() => {
         if (category) {
-            setTitle(category)
+            setCategoryName(category)
         }
     }, [category])
 
     return (
         <div className="header">
-            {title ? title : name}
+            <Link to='/'>
+                <h1 className="appTitle">{title}</h1>
+            </Link>
+            {categoryName}
         </div>
     )
 }

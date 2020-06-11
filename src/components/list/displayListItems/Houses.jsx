@@ -8,6 +8,9 @@ export default function Houses(props) {
     const [heirId, setHeirId] = useState('')
     const [currentLordId, setCurrentLordId] = useState('')
     const [currentLordName, setCurrentLordName] = useState('')
+    const [founderName, setFounderName] = useState('')
+    const [founderId, setFounderId] = useState('')
+
     const {
         name,
         region,
@@ -54,6 +57,16 @@ export default function Houses(props) {
                 .catch(err => console.log(err))
         }
 
+        if (founder) {
+            axios.get(founder)
+                .then(res => {
+                    const { name } = res.data
+                    setFounderName(name)
+                    setFounderId(splitUrl(founder))
+                })
+                .catch(err => console.log(err))
+        }
+
     }, [currentLord, heir])
 
     return (
@@ -61,6 +74,16 @@ export default function Houses(props) {
             <h1 className="name">House name: {isEmpty(name)}</h1>
             <h3 className="region">House region: {isEmpty(region)}</h3>
             <p className="founder">House founder: {isEmpty(founder)}</p>
+            <div className="founder">
+                Founder: {' '}
+                {founderName ? (
+                    <Link to={`/characters/${founderId}/${convertName(founderName)}`}>
+                        {founderName}
+                    </Link>
+                ) : (
+                        <p className="founderName">House Founder: {isEmpty(founderName)}</p>
+                    )}
+            </div>
             {heirName ? (
                 <div className="heir">
                     House heir: {' '}
@@ -72,7 +95,7 @@ export default function Houses(props) {
                     </Link>
                 </div>
             ) : (
-                    <p className="heir"> House heir: Not Available </p>
+                    <p className="heirName"> House heir: Not Available </p>
                 )
             }
             <div className="currentLord">
