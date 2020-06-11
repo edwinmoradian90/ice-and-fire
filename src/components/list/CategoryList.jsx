@@ -1,14 +1,18 @@
 import React from 'react'
 import CategoryListItem from './CategoryListItem'
+import { useSelector } from 'react-redux'
 
 function CategoryList(props) {
+    const pageSize = useSelector(state => state.categoriesReducer.pageSize)
+    const page = useSelector(state => state.categoriesReducer.page)
     const { data, category, getId } = props
+
     return (
         <>
             {data.map((item, i) => {
-                const id = i + 1
+                const id = (i + 1) + ((page - 1) * pageSize)
                 return (
-                    <li key={i}>
+                    <li key={id}>
                         <CategoryListItem
                             id={id}
                             item={item}
