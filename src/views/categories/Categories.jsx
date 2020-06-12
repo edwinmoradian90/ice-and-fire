@@ -8,8 +8,10 @@ import {
     NEXT_PAGE,
     PREV_PAGE
 } from '../../redux/constants/constants'
+import { SUBMIT } from '../../redux/constants/searchConstants'
 import Header from '../../components/header/Header'
 import CategoryList from '../../components/list/CategoryList'
+import Search from '../../components/search/Search'
 import axios from 'axios'
 import { url } from '../../config/config'
 
@@ -20,6 +22,8 @@ function Categories(props) {
     const loading = useSelector(state => state.categoriesReducer.loading)
     const page = useSelector(state => state.categoriesReducer.page)
     const pageSize = useSelector(state => state.categoriesReducer.pageSize)
+    const searchData = useSelector(state => state.searchReducer.searchData)
+    const searchSubmitted = useSelector(state => state.searchReducer.searchSubmitted)
     const id = useSelector(state => state.categoriesReducer.id)
 
     const getId = e => {
@@ -52,6 +56,14 @@ function Categories(props) {
                 data: ''
             }
         })
+
+        dispatch({
+            type: SUBMIT,
+            payload: {
+                searchSubmitted: false
+            }
+        })
+
         axios.get(`${url}/${category}?page=${page}&pageSize=${pageSize}`)
             .then(res => {
                 console.log(res)
@@ -72,7 +84,7 @@ function Categories(props) {
                     }
                 })
             })
-    }, [page])
+    }, [page, searchSubmitted])
 
     return (
         <>
@@ -81,10 +93,12 @@ function Categories(props) {
                 (
                     <div>
                         <Header category={category} />
+                        <Search />
                         <CategoryList
                             getId={getId}
                             data={data}
                             category={category}
+                            searchData={searchData}
                         />
                         {
                             category === '/characters' || category === '/houses'
@@ -92,14 +106,14 @@ function Categories(props) {
                                 (
                                     <div className='navigationButtons'>
                                         <span
-                                            onClick={() => nextPage()}
-                                            className='nextPage'>
-                                            Next
-                                        </span>
-                                        <span
                                             onClick={() => prevPage()}
                                             className="prevPage">
                                             Previous Page
+                                        </span>
+                                        <span
+                                            onClick={() => nextPage()}
+                                            className='nextPage'>
+                                            Next Page
                                         </span>
                                     </div>
 

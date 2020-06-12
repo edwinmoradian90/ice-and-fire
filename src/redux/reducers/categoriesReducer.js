@@ -21,14 +21,11 @@ const initialState = {
 export default function categoriesReducer(state = initialState, action) {
     switch (action.type) {
         case FETCH_CATEGORIES_REQUEST:
-            console.log(state.loading)
-            console.log('Request')
             return {
                 ...state,
                 loading: true,
             }
         case FETCH_CATEGORIES_SUCCESS:
-            console.log('Success')
             return {
                 ...state,
                 loading: false,
@@ -63,7 +60,6 @@ export default function categoriesReducer(state = initialState, action) {
                     : state.page
             }
         default:
-            console.log('Default')
             return state;
     }
 }

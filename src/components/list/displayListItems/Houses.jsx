@@ -73,17 +73,19 @@ export default function Houses(props) {
         <div className="houses">
             <h1 className="name">House name: {isEmpty(name)}</h1>
             <h3 className="region">House region: {isEmpty(region)}</h3>
-            <p className="founder">House founder: {isEmpty(founder)}</p>
             <div className="founder">
-                Founder: {' '}
                 {founderName ? (
-                    <Link to={`/characters/${founderId}/${convertName(founderName)}`}>
-                        {founderName}
-                    </Link>
+                    <>
+                        House Founder: {' '}
+                        <Link to={`/characters/${founderId}/${convertName(founderName)}`}>
+                            {founderName}
+                        </Link>
+                    </>
                 ) : (
                         <p className="founderName">House Founder: {isEmpty(founderName)}</p>
                     )}
             </div>
+            <p className="founded">Founded During: {isEmpty(founded)}</p>
             {heirName ? (
                 <div className="heir">
                     House heir: {' '}
