@@ -14,6 +14,8 @@ import CategoryList from '../../components/list/CategoryList'
 import Search from '../../components/search/Search'
 import axios from 'axios'
 import { url } from '../../config/config'
+import { Container } from '../../utils/styledComponents/main'
+import { Loader } from '../../components/loading/Loader'
 
 function Categories(props) {
     const category = props.match.path
@@ -49,6 +51,14 @@ function Categories(props) {
         })
     }
 
+    const noResults = (filteredData) => {
+        if (!filteredData) {
+            dispatch({
+                type: NEXT_PAGE
+            })
+        }
+    }
+
     useEffect(() => {
         dispatch({
             type: FETCH_CATEGORIES_REQUEST,
@@ -67,13 +77,15 @@ function Categories(props) {
         axios.get(`${url}/${category}?page=${page}&pageSize=${pageSize}`)
             .then(res => {
                 console.log(res)
-                dispatch({
-                    type: FETCH_CATEGORIES_SUCCESS,
-                    payload: {
-                        data: res.data,
-                        currentUrl: category,
-                    }
-                })
+                setTimeout(() => {
+                    dispatch({
+                        type: FETCH_CATEGORIES_SUCCESS,
+                        payload: {
+                            data: res.data,
+                            currentUrl: category,
+                        }
+                    })
+                }, 2000)
             })
             .catch(err => {
                 dispatch({
@@ -91,7 +103,7 @@ function Categories(props) {
             {!loading
                 ?
                 (
-                    <div>
+                    <Container>
                         <Header category={category} />
                         <Search />
                         <CategoryList
@@ -99,6 +111,7 @@ function Categories(props) {
                             data={data}
                             category={category}
                             searchData={searchData}
+                            noResults={noResults}
                         />
                         {
                             category === '/characters' || category === '/houses'
@@ -121,11 +134,13 @@ function Categories(props) {
                                 :
                                 null
                         }
-                    </div>
+                    </Container>
                 )
                 :
                 (
-                    <p> loading...</p>
+                    <Loader
+                        loading={loading}
+                    />
                 )
             }
         </>

@@ -1,5 +1,6 @@
 import React from 'react'
 import MainListItem from './MainListItem'
+import { Loader } from '../loading/Loader'
 
 function MainList(props) {
     const { data } = props.data
@@ -11,7 +12,9 @@ function MainList(props) {
                     <li key={i}><MainListItem {...props} item={item} /></li>
                 ))
                 :
-                'Loading...'
+                (
+                    <Loader />
+                )
             }
         </>
     )

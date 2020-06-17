@@ -11,6 +11,7 @@ import Characters from '../../components/list/displayListItems/Characters'
 import Houses from '../../components/list/displayListItems/Houses'
 import axios from 'axios'
 import { url } from '../../config/config'
+import { Loader } from '../../components/loading/Loader'
 
 function Display(props) {
     const dispatch = useDispatch()
@@ -30,13 +31,15 @@ function Display(props) {
         })
         axios.get(apiUrl)
             .then(res => {
-                dispatch({
-                    type: FETCH_DISPLAY_SUCCESS,
-                    payload: {
-                        loading: false,
-                        data: res,
-                    }
-                })
+                setTimeout(() => {
+                    dispatch({
+                        type: FETCH_DISPLAY_SUCCESS,
+                        payload: {
+                            loading: false,
+                            data: res,
+                        }
+                    })
+                }, 2000)
             })
             .catch(err => {
                 dispatch({
@@ -76,7 +79,7 @@ function Display(props) {
                     )
                     :
                     (
-                        <p>loading...</p>
+                        <Loader />
                     )
             }
         </>

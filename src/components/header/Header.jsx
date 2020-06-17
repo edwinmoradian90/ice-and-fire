@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { StyledLink, Title } from '../../utils/styledComponents/main'
 
 function Header(props) {
     const { category } = props
@@ -14,9 +14,9 @@ function Header(props) {
 
     return (
         <div className="header">
-            <Link to='/'>
-                <h1 className="appTitle">{title}</h1>
-            </Link>
+            <StyledLink to='/'>
+                <Title className="appTitle">{title}</Title>
+            </StyledLink>
             {categoryName}
         </div>
     )

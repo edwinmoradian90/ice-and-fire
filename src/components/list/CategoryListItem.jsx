@@ -1,6 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { convertName } from '../../utils/helpers'
+import { StyledLink } from '../../utils/styledComponents/main'
+import { CategoryItem } from '../../utils/styledComponents/category'
 
 function CategoryListItem(props) {
     const { category } = props
@@ -11,17 +12,16 @@ function CategoryListItem(props) {
     const newUrl = `${category}/${id}/${convertedName}`
 
     return (
-        <Link to={newUrl} onClick={getId} id={id}>
-            <ul id={id}>
+        <StyledLink to={newUrl} onClick={getId} id={id}>
+            <CategoryItem id={id}>
                 <li id={id} className={name ? 'title' : 'd_none'}> {name} </li>
                 <li id={id} className={aliases ? 'aliases' : 'd_none'}> {aliases}</li>
                 <li id={id} className={numberOfPages ? 'numberOfPages' : 'd_none'}>
                     {numberOfPages} pages
                     </li>
                 <li id={id} className={released ? 'released' : 'd_none'}>{released}</li>
-            </ul>
-            <hr />
-        </Link>
+            </CategoryItem>
+        </StyledLink>
     )
 }
 
