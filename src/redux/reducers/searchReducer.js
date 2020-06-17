@@ -9,6 +9,7 @@ export default function searchReducer(state = initialState, action) {
     switch (action.type) {
         case SEARCH:
             const { searchData } = action.payload
+            console.log(searchData)
             return {
                 ...state,
                 searchSubmitted: false,

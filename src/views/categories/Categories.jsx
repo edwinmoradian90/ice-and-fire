@@ -107,7 +107,7 @@ function Categories(props) {
                                     <div className='navigationButtons'>
                                         <span
                                             onClick={() => prevPage()}
-                                            className="prevPage">
+                                            className={page > 1 ? 'prevPage' : 'd_none'}>
                                             Previous Page
                                         </span>
                                         <span

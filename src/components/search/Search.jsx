@@ -11,7 +11,9 @@ export default function Search() {
         console.log(e.target.value)
         dispatch({
             type: SEARCH,
-            payload: e.target.value
+            payload: {
+                searchData: e.target.value
+            }
         })
     }
 
