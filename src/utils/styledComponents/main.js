@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import colors from '../../utils/colors'
+import { css } from '@emotion/core'
 
 const { lightRed, red, darkRed, bloodRed, yellow } = colors
 
@@ -12,7 +13,6 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 100%;
 `
 
 export const LoadingContainer = styled.div`
@@ -20,9 +20,7 @@ export const LoadingContainer = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: column;
-    margin-top: 50%;
-    padding-bottom: 100px;
-    padding-top: 100px;
+    height: 100vh;
 `
 export const Title = styled.h1`
     display: flex;
@@ -39,7 +37,11 @@ export const Text = styled.p`
     justify-content: center;
     font-size: 1.5em;
     color: ${yellow};
-    background: ${red};
     font-family: Game of Thrones;
+    padding: 20px;
 `
 
+export const center = css`
+    display: block;
+    margin: 0 auto;
+`

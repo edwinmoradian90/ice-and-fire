@@ -10,6 +10,9 @@ export const CategoryItem = styled.ul`
     background: ${red};
     font-family: Game of Thrones;
     &:hover {
-        padding: 50px;
+        color: ${red};
+        background: ${yellow};
+        transition: .5s;
+        transform: scale(1.01)
     }
 `;
