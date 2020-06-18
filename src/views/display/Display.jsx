@@ -12,6 +12,7 @@ import Houses from '../../components/list/displayListItems/Houses'
 import axios from 'axios'
 import { url } from '../../config/config'
 import { Loader } from '../../components/loading/Loader'
+import { Title } from '../../utils/styledComponents/main'
 
 function Display(props) {
     const dispatch = useDispatch()
@@ -79,7 +80,9 @@ function Display(props) {
                     )
                     :
                     (
-                        <Loader />
+                        <>
+                            <Loader />
+                        </>
                     )
             }
         </>

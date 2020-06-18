@@ -1,16 +1,20 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { StyledLink, Text } from '../../utils/styledComponents/main'
 
 function MainListItem(props) {
     const item = props.item
-    console.log(item)
     return (
         <>
             {
 
-                <Link to={item} className='listItem' >
-                    <h3 className="itemTitle">{item}</h3>
-                </Link >
+                <StyledLink to={item} className='listItem' >
+                    <Text
+                        className='itemTitle'
+                        color='red'
+                    >
+                        {item}
+                    </Text>
+                </StyledLink >
 
             }
         </>

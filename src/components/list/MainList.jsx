@@ -3,18 +3,16 @@ import MainListItem from './MainListItem'
 import { Loader } from '../loading/Loader'
 
 function MainList(props) {
-    const { data } = props.data
-    console.log(props)
+    const { data, loading } = props
+    console.log(loading, data)
     return (
         <>
-            {data
-                ? Object.keys(data).map((item, i) => (
+            {data['data']
+                ? Object.keys(data.data).map((item, i) => (
                     <li key={i}><MainListItem {...props} item={item} /></li>
                 ))
                 :
-                (
-                    <Loader />
-                )
+                null
             }
         </>
     )

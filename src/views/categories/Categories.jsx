@@ -16,6 +16,7 @@ import axios from 'axios'
 import { url } from '../../config/config'
 import { Container } from '../../utils/styledComponents/main'
 import { Loader } from '../../components/loading/Loader'
+import { Title, Text } from '../../utils/styledComponents/main'
 
 function Categories(props) {
     const category = props.match.path
@@ -118,16 +119,20 @@ function Categories(props) {
                                 ?
                                 (
                                     <div className='navigationButtons'>
-                                        <span
+                                        <Text
                                             onClick={() => prevPage()}
-                                            className={page > 1 ? 'prevPage' : 'd_none'}>
+                                            className='prevPage'
+                                            fontSize='1em'
+                                            display={page > 1 ? 'flex' : 'none'}
+                                        >
                                             Previous Page
-                                        </span>
-                                        <span
+                                        </Text>
+                                        <Text className="pageNumber">{page}</Text>
+                                        <Text
                                             onClick={() => nextPage()}
                                             className='nextPage'>
                                             Next Page
-                                        </span>
+                                        </Text>
                                     </div>
 
                                 )
@@ -138,9 +143,11 @@ function Categories(props) {
                 )
                 :
                 (
-                    <Loader
-                        loading={loading}
-                    />
+                    <>
+                        <Loader
+                            loading={loading}
+                        />
+                    </>
                 )
             }
         </>
