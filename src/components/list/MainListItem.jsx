@@ -10,7 +10,7 @@ function MainListItem(props) {
                 <StyledLink to={item} className='listItem' >
                     <Text
                         className='itemTitle'
-                        color='red'
+                        hColor='red'
                     >
                         {item}
                     </Text>

@@ -14,7 +14,9 @@ export const Container = styled.div`
     background: ${darkRed};
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: ${props => props.justifyContent || 'center'};
+    align-items: ${props => props.alignItems || 'none'};
+    height: ${props => props.height || 'auto'};
 `
 
 export const LoadingContainer = styled.div`
@@ -36,17 +38,19 @@ export const Title = styled.h1`
 `
 export const Text = styled.p`
     display: ${props => props.display || 'flex'};
-    justify-content: center;
-    font-size: ${props => props.fontSize || '1.5em'};
-    color: ${ yellow};
+    justify-content: ${props => props.justifyContent || 'center'};
+    font-size: ${props => props.fontSize || '1.2em'};
+    color: ${props => colorMatcher(props.color) || yellow};
     font-family: Game of Thrones;
     padding: 20px;
+    line-height: 40px;
     &: hover {
-    color: ${ props => colorMatcher(props.color)};
+        hColor: ${ props => colorMatcher(props.hColor)};
+        cursor: ${ props => props.cursor};
 }
 `
 
 export const center = css`
-display: block;
-margin: 0 auto;
+    display: block;
+    margin: 0 auto;
 `

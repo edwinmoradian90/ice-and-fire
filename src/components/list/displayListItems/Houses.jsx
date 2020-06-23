@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { convertName } from '../../../utils/helpers'
 import axios from 'axios'
+import { Container, Text } from '../../../utils/styledComponents/main'
 
 export default function Houses(props) {
     const [heirName, setHeirName] = useState('')
@@ -32,7 +33,7 @@ export default function Houses(props) {
 
     const isEmpty = item => {
         if (item === '' || item === null) {
-            return 'Not Available.'
+            return 'N/A'
         }
         return item
     }
@@ -70,10 +71,15 @@ export default function Houses(props) {
     }, [currentLord, heir])
 
     return (
-        <div className="houses">
-            <h1 className="name">House name: {isEmpty(name)}</h1>
-            <h3 className="region">House region: {isEmpty(region)}</h3>
-            <div className="founder">
+        <Container
+            className="houses"
+            height="100vh"
+            justifyContent="flex-start"
+            alignItems="flex-start"
+        >
+            <Text className="name">House name: {isEmpty(name)}</Text>
+            <Text className="region">House region: {isEmpty(region)}</Text>
+            <Text className="founder">
                 {founderName ? (
                     <>
                         House Founder: {' '}
@@ -84,10 +90,10 @@ export default function Houses(props) {
                 ) : (
                         <p className="founderName">House Founder: {isEmpty(founderName)}</p>
                     )}
-            </div>
-            <p className="founded">Founded During: {isEmpty(founded)}</p>
+            </Text>
+            <Text className="founded">Founded During: {isEmpty(founded)}</Text>
             {heirName ? (
-                <div className="heir">
+                <Text className="heir">
                     House heir: {' '}
                     <Link
                         className='heirName'
@@ -95,12 +101,12 @@ export default function Houses(props) {
                     >
                         {heirName}
                     </Link>
-                </div>
+                </Text>
             ) : (
-                    <p className="heirName"> House heir: Not Available </p>
+                    <Text className="heirName"> House heir: N/A</Text>
                 )
             }
-            <div className="currentLord">
+            <Text className="currentLord">
                 Current Lord: {' '}
                 {currentLord
                     ?
@@ -117,7 +123,7 @@ export default function Houses(props) {
                         <span className="currentLordName">{isEmpty(currentLordName)}</span>
                     )
                 }
-            </div>
-        </div >
+            </Text>
+        </Container >
     )
 }

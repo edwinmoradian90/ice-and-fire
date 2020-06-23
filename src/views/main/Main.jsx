@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Container } from '../../utils/styledComponents/main'
 import axios from 'axios'
 import Header from '../../components/header/Header'
 import MainList from '../../components/list/MainList'
@@ -47,10 +48,15 @@ function Main(props) {
 
                         <>
                             <Header />
-                            <MainList
-                                loading={loading}
-                                data={data || []}
-                            />
+                            <Container
+                                height='100vh'
+                                justifyContent='flex-start'
+                            >
+                                <MainList
+                                    loading={loading}
+                                    data={data || []}
+                                />
+                            </Container>
                         </>
                     )
                     :

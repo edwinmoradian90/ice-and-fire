@@ -121,6 +121,7 @@ function Categories(props) {
                                     <div className='navigationButtons'>
                                         <Text
                                             onClick={() => prevPage()}
+                                            cursor='pointer'
                                             className='prevPage'
                                             fontSize='1em'
                                             display={page > 1 ? 'flex' : 'none'}
@@ -129,6 +130,7 @@ function Categories(props) {
                                         </Text>
                                         <Text className="pageNumber">{page}</Text>
                                         <Text
+                                            cursor='pointer'
                                             onClick={() => nextPage()}
                                             className='nextPage'>
                                             Next Page
