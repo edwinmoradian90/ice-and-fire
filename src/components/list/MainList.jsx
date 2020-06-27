@@ -9,7 +9,7 @@ function MainList(props) {
         <>
             {data['data']
                 ? Object.keys(data.data).map((item, i) => (
-                    <li key={i}><MainListItem {...props} item={item} /></li>
+                    <div key={i}><MainListItem {...props} item={item} /></div>
                 ))
                 :
                 null

@@ -16,3 +16,5 @@ export const CategoryItem = styled.ul`
         transform: scale(1.01)
     }
 `;
+
+
