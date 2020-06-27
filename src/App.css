@@ -45,3 +45,8 @@ table {
 .d_none {
     display: none;
 }
+
+@font-face{
+	font-family: 'Got';
+	src: url(fonts/Got.ttf);
+}

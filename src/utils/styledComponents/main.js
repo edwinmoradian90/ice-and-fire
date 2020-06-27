@@ -34,14 +34,14 @@ export const Title = styled.h1`
     text-decoration: none;
     background: ${red};
     color: ${yellow};
-    font-family: Game of Thrones;
+    font-family: Got;
 `
 export const Text = styled.p`
     display: ${props => props.display || 'flex'};
     justify-content: ${props => props.justifyContent || 'center'};
     font-size: ${props => props.fontSize || '1.2em'};
     color: ${props => colorMatcher(props.color) || yellow};
-    font-family: Game of Thrones;
+    font-family: Got;
     padding: 20px;
     line-height: 40px;
     &: hover {

@@ -8,7 +8,7 @@ export const CategoryItem = styled.ul`
     list-style: none;
     color: ${yellow};
     background: ${red};
-    font-family: Game of Thrones;
+    font-family: Got;
     &:hover {
         color: ${red};
         background: ${yellow};
