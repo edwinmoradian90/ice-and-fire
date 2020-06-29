@@ -40,7 +40,7 @@ function Main(props) {
     console.log(loading)
 
     return (
-        <div>
+        <Container>
             {
                 !loading
                     ?
@@ -64,7 +64,7 @@ function Main(props) {
                         <Loader loading={loading} />
                     )
             }
-        </div>
+        </Container>
     )
 }
 

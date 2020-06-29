@@ -17,7 +17,6 @@ function Header(props) {
             <StyledLink to='/'>
                 <Title className="appTitle">{title}</Title>
             </StyledLink>
-            {categoryName}
         </div>
     )
 }
