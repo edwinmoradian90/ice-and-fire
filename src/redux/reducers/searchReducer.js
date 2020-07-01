@@ -1,13 +1,17 @@
-import { SEARCH, SUBMIT } from '../constants/searchConstants'
+import {
+    TYPING,
+    SUBMIT,
+    RESET_SEARCH
+} from '../constants/searchConstants'
 
 const initialState = {
     searchData: '',
-    searchSubmitted: false
+    searchSubmitted: false,
 }
 
 export default function searchReducer(state = initialState, action) {
     switch (action.type) {
-        case SEARCH:
+        case TYPING:
             const { searchData } = action.payload
             console.log(searchData)
             return {
@@ -20,6 +24,12 @@ export default function searchReducer(state = initialState, action) {
             return {
                 ...state,
                 searchSubmitted
+            }
+        case RESET_SEARCH:
+            return {
+                ...state,
+                searchSubmitted: false,
+                searchData: ''
             }
 
         default:

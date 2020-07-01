@@ -14,3 +14,4 @@ export const GET_ELEMENT_ID = 'GET_ELEMENT_ID'
 
 export const NEXT_PAGE = 'NEXT_PAGE'
 export const PREV_PAGE = 'PREV_PAGE'
+export const PAGE_RESET = 'PAGE_RESET'

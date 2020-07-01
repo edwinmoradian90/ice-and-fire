@@ -4,11 +4,10 @@ import {
     FETCH_CATEGORIES_REQUEST,
     FETCH_CATEGORIES_SUCCESS,
     FETCH_CATEGORIES_FAILURE,
-    GET_ELEMENT_ID,
     NEXT_PAGE,
     PREV_PAGE
 } from '../../redux/constants/constants'
-import { SUBMIT } from '../../redux/constants/searchConstants'
+import { SUBMIT, RESET_SEARCH } from '../../redux/constants/searchConstants'
 import Header from '../../components/header/Header'
 import CategoryList from '../../components/list/CategoryList'
 import Search from '../../components/search/Search'
@@ -27,17 +26,6 @@ function Categories(props) {
     const pageSize = useSelector(state => state.categoriesReducer.pageSize)
     const searchData = useSelector(state => state.searchReducer.searchData)
     const searchSubmitted = useSelector(state => state.searchReducer.searchSubmitted)
-    const id = useSelector(state => state.categoriesReducer.id)
-
-    const getId = e => {
-        const { id } = e.target
-        dispatch({
-            type: GET_ELEMENT_ID,
-            payload: {
-                id
-            }
-        })
-    }
 
     const nextPage = () => {
         dispatch({
@@ -75,7 +63,7 @@ function Categories(props) {
             }
         })
 
-        axios.get(`${url}/${category}?page=${page}&pageSize=${pageSize}`)
+        axios.get(`${url}/${category}?page=${page}&pageSize=${pageSize}&name=${searchData}`)
             .then(res => {
                 console.log(res)
                 setTimeout(() => {
@@ -86,6 +74,7 @@ function Categories(props) {
                             currentUrl: category,
                         }
                     })
+                    dispatch({ type: RESET_SEARCH })
                 }, 2000)
             })
             .catch(err => {
@@ -97,7 +86,7 @@ function Categories(props) {
                     }
                 })
             })
-    }, [page, searchSubmitted])
+    }, [page, searchSubmitted, category])
 
     return (
         <>
@@ -108,14 +97,13 @@ function Categories(props) {
                         <Header category={category} />
                         <Search />
                         <CategoryList
-                            getId={getId}
                             data={data}
                             category={category}
                             searchData={searchData}
                             noResults={noResults}
                         />
                         {
-                            category === '/characters' || category === '/houses'
+                            (category === '/characters' || category === '/houses') && data.length >= pageSize
                                 ?
                                 (
                                     <div className='navigationButtons'>

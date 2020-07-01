@@ -17,7 +17,6 @@ export const Container = styled.div`
     justify-content: ${props => props.justifyContent || 'center'};
     align-items: ${props => props.alignItems || 'none'};
     height: ${props => props.height || 'auto'};
-    width: 70%;
 `
 
 export const LoadingContainer = styled.div`

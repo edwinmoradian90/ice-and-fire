@@ -29,29 +29,17 @@ function CategoryList(props) {
     return (
         <>
             {data.map((item, i) => {
-                const { aliases, name } = item
                 const id = (i + 1) + ((page - 1) * pageSize)
                 return (
                     <>
-                        {
-                            (wordMatch(name) || searchData === '') && category !== '/books'
-                                ?
-                                (
-
-                                    <li key={id} >
-                                        <CategoryListItem
-                                            id={id}
-                                            item={item}
-                                            category={category}
-                                            getId={getId}
-                                        />
-                                    </li>
-                                )
-                                :
-                                (
-                                    null
-                                )
-                        }
+                        <li key={id} >
+                            <CategoryListItem
+                                id={id}
+                                item={item}
+                                category={category}
+                                getId={getId}
+                            />
+                        </li>
                     </>
                 )
             })}

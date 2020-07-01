@@ -4,7 +4,8 @@ import {
     FETCH_CATEGORIES_SUCCESS,
     GET_ELEMENT_ID,
     PREV_PAGE,
-    NEXT_PAGE
+    NEXT_PAGE,
+    PAGE_RESET
 } from '../constants/constants'
 
 const initialState = {
@@ -58,6 +59,11 @@ export default function categoriesReducer(state = initialState, action) {
                 page: state.page > 0
                     ? state.page - 1
                     : state.page
+            }
+        case PAGE_RESET:
+            return {
+                ...state,
+                page: 1
             }
         default:
             return state;

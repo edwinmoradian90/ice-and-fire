@@ -5,14 +5,15 @@ import { CategoryItem } from '../../utils/styledComponents/category'
 
 function CategoryListItem(props) {
     const { category } = props
-    const { name, numberOfPages, released, aliases } = props.item
+    const { name, numberOfPages, released, aliases, url } = props.item
+    const id = url.split('/')[url.split('/').length - 1]
+    console.log(id)
     let availableName = name ? name : aliases[0]
     const convertedName = convertName(availableName)
-    const { id, getId } = props
     const newUrl = `${category}/${id}/${convertedName}`
 
     return (
-        <StyledLink to={newUrl} onClick={getId} id={id}>
+        <StyledLink to={newUrl} id={id}>
             <CategoryItem id={id}>
                 <li id={id} className={name ? 'title' : 'd_none'}> {name} </li>
                 <li id={id} className={aliases ? 'aliases' : 'd_none'}> {aliases}</li>

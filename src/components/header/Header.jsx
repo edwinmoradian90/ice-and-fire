@@ -5,6 +5,7 @@ function Header(props) {
     const { category } = props
     const [title, setTitle] = useState('Ice and Fire')
     const [categoryName, setCategoryName] = useState('')
+    const [showSearch, setShowSearch] = useState(true)
 
     useEffect(() => {
         if (category) {
