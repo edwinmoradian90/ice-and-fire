@@ -43,6 +43,11 @@ table {
 	border-spacing: 0;
 }
 
+html {
+	min-height: 100vh;
+	background: #64000d
+}
+
 .d_none {
     display: none;
 }

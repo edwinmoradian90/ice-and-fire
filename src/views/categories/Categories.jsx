@@ -63,7 +63,10 @@ function Categories(props) {
             }
         })
 
-        axios.get(`${url}/${category}?page=${page}&pageSize=${pageSize}&name=${searchData}`)
+        axios.get(`${url}/${category}?page=${searchData
+            ? null
+            : page
+            }&pageSize=${pageSize}&name=${searchData}`)
             .then(res => {
                 console.log(res)
                 setTimeout(() => {
@@ -103,7 +106,7 @@ function Categories(props) {
                             noResults={noResults}
                         />
                         {
-                            (category === '/characters' || category === '/houses') && data.length >= pageSize
+                            data.length >= pageSize && data.length > 1
                                 ?
                                 (
                                     <div className='navigationButtons'>
@@ -120,14 +123,21 @@ function Categories(props) {
                                         <Text
                                             cursor='pointer'
                                             onClick={() => nextPage()}
-                                            className='nextPage'>
+                                            className='nextPage'
+                                            display={page !== pageSize ? 'flex' : 'none'}
+                                        >
                                             Next Page
                                         </Text>
                                     </div>
 
                                 )
                                 :
-                                null
+                                <>
+                                    <Text>
+                                        You know nothing, Jon Snow...
+                                    </Text>
+                                    <iframe src="https://giphy.com/embed/13f5iwTRuiEjjW" width="100%" height="100%" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                                </>
                         }
                     </Container>
                 )
