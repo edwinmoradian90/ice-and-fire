@@ -99,12 +99,23 @@ function Categories(props) {
                     <Container>
                         <Header category={category} />
                         <Search />
-                        <CategoryList
-                            data={data}
-                            category={category}
-                            searchData={searchData}
-                            noResults={noResults}
-                        />
+                        {
+                            data.length !== 0 
+                            ? 
+                            <CategoryList
+                                data={data}
+                                category={category}
+                                searchData={searchData}
+                                noResults={noResults}
+                            />
+                            :
+                                <>
+                                    <Text>
+                                        You know nothing, Jon Snow...
+                                    </Text>
+                                    <iframe src="https://giphy.com/embed/13f5iwTRuiEjjW" width="100%" height="100%" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                                </>
+                        }
                         {
                             data.length >= pageSize && data.length > 1
                                 ?
@@ -132,12 +143,7 @@ function Categories(props) {
 
                                 )
                                 :
-                                <>
-                                    <Text>
-                                        You know nothing, Jon Snow...
-                                    </Text>
-                                    <iframe src="https://giphy.com/embed/13f5iwTRuiEjjW" width="100%" height="100%" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-                                </>
+                                null
                         }
                     </Container>
                 )

@@ -49,7 +49,7 @@ function Main(props) {
                         <>
                             <Header />
                             <Container
-                                height='100vh'
+                                height='calc(100vh - 72px)'
                                 justifyContent='flex-start'
                             >
                                 <MainList

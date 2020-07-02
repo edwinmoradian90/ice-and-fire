@@ -4,6 +4,7 @@ import colors from '../../utils/colors'
 const { yellow, red } = colors
 
 export const CategoryItem = styled.ul`
+    display: flex;
     padding: 20px;
     list-style: none;
     color: ${yellow};
@@ -16,5 +17,9 @@ export const CategoryItem = styled.ul`
         transform: scale(1.01)
     }
 `;
+
+export const CategoryItemIcon = styled.div`
+    margin-right: 10px;
+`
 
 

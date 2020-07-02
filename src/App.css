@@ -44,8 +44,8 @@ table {
 }
 
 html {
-	min-height: 100vh;
-	background: #64000d
+	min-height: calc(100vh - 100px);
+	background: #64000d;
 }
 
 .d_none {

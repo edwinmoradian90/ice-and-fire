@@ -24,7 +24,7 @@ export const LoadingContainer = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: column;
-    height: 100vh;
+    height: calc(100vh - 72px);
 `
 export const Title = styled.h1`
     display: flex;

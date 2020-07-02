@@ -34,7 +34,7 @@ export default function Search() {
             <SearchBar
                 type='text'
                 className='searchInput'
-                placeholder='Search'
+                placeholder='Search By Name'
                 onChange={onChange}
             />
             <SearchButton

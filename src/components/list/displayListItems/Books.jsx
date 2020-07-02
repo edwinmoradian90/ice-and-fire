@@ -1,4 +1,5 @@
 import React from 'react'
+import { Container, Text } from '../../../utils/styledComponents/main'
 
 export default function Books(props) {
     console.log(props.items.data)
@@ -11,15 +12,49 @@ export default function Books(props) {
         released
     } = props.items.data || ''
     console.log(released)
+
+    const timeRemover = (releasedDate) => {
+        if (releasedDate) {
+            const modifiedDate = releasedDate.split('T')
+            return modifiedDate[0]
+        }
+    }
+
+
     return (
-        <div>
+        <Container>
             <ul>
-                <li>{name} by {authors}</li>
-                <li className='numberOfPages'> {numberOfPages} pages</li>
-                <li className='publisher'>Published by {publisher}</li>
-                <li className="country">{country}</li>
-                <li className="released">{released}</li>
+                <li className='bookName'>
+                    <Text justifyContent='flex-start'>
+                        Name: {name}
+                    </Text>
+                </li>
+                <li className='author'>
+                    <Text justifyContent='flex-start'>
+                        Author: {authors}
+                    </Text>
+                </li>
+                <li className='numberOfPages'>
+                    <Text justifyContent='flex-start'>
+                        Number Of Pages: {numberOfPages} pages
+                    </Text>
+                </li>
+                <li className='publisher'>
+                    <Text justifyContent='flex-start'>
+                        Published by: {publisher}
+                    </Text>
+                </li>
+                <li className='country'>
+                    <Text justifyContent='flex-start'>
+                        Published at: {country}
+                    </Text>
+                </li>
+                <li className='released'>
+                    <Text justifyContent='flex-start'>
+                        Release Date: {timeRemover(released)}
+                    </Text>
+                </li>
             </ul>
-        </div>
+        </Container>
     )
 }

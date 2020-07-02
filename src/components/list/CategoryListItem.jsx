@@ -1,7 +1,8 @@
 import React from 'react'
 import { convertName } from '../../utils/helpers'
 import { StyledLink } from '../../utils/styledComponents/main'
-import { CategoryItem } from '../../utils/styledComponents/category'
+import { CategoryItem, CategoryItemIcon } from '../../utils/styledComponents/category'
+import { GiWingedSword } from 'react-icons/gi'
 
 function CategoryListItem(props) {
     const { category } = props
@@ -15,12 +16,11 @@ function CategoryListItem(props) {
     return (
         <StyledLink to={newUrl} id={id}>
             <CategoryItem id={id}>
+                <CategoryItemIcon>
+                    <GiWingedSword />
+                </CategoryItemIcon>
                 <li id={id} className={name ? 'title' : 'd_none'}> {name} </li>
-                <li id={id} className={aliases ? 'aliases' : 'd_none'}> {aliases}</li>
-                <li id={id} className={numberOfPages ? 'numberOfPages' : 'd_none'}>
-                    {numberOfPages} pages
-                    </li>
-                <li id={id} className={released ? 'released' : 'd_none'}>{released}</li>
+                <li id={id} className={aliases && !name ? 'aliases' : 'd_none'}> {aliases}</li>
             </CategoryItem>
         </StyledLink>
     )
