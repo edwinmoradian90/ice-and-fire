@@ -2,7 +2,6 @@ import React from 'react'
 import { Container, Text } from '../../../utils/styledComponents/main'
 
 export default function Books(props) {
-    console.log(props.items.data)
     const {
         name,
         authors,
@@ -11,7 +10,6 @@ export default function Books(props) {
         country,
         released
     } = props.items.data || ''
-    console.log(released)
 
     const timeRemover = (releasedDate) => {
         if (releasedDate) {
@@ -19,7 +17,6 @@ export default function Books(props) {
             return modifiedDate[0]
         }
     }
-
 
     return (
         <Container>

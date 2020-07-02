@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Container, Label, Text } from '../../../utils/styledComponents/main'
 import { CategoryItemIcon } from '../../../utils/styledComponents/category'
 import { GiWingedSword } from 'react-icons/gi'
+import { splitUrl, isEmpty, convertName } from '../../../utils/helpers'
+import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 export default function Characters(props) {
+    const [motherName, setMotherName] = useState('')
+    const [fatherName, setFatherName] = useState('')
+    const [motherId, setMotherId] = useState('')
+    const [fatherId, setFatherId] = useState('')
     const {
         aliases,
         books,
@@ -15,6 +22,28 @@ export default function Characters(props) {
         father,
         playedBy,
     } = props.items.data || 'loading...'
+
+    useEffect(() => {
+        if (mother) {
+            axios.get(mother)
+                .then(res => {
+                    const { name } = res
+                    setMotherName(name)
+                    setMotherId(splitUrl(mother))
+                })
+                .catch(err => console.log(err))
+        }
+
+        if (father) {
+            axios.get(father)
+                .then(res => {
+                    const { name } = res
+                    setFatherName(name)
+                    setFatherId(splitUrl(father))
+                })
+                .catch(err => console.log(err))
+        }
+    }, [mother, father])
 
     return (
         <Container
@@ -58,9 +87,31 @@ export default function Characters(props) {
                 <Text justifyContent="flex-start" fontSize="1.2em">Gender: {gender || 'N/A'}</Text>
                 <Text justifyContent="flex-start" fontSize="1.2em">Born: {born || 'N/A'}</Text>
                 <Text justifyContent="flex-start" fontSize="1.2em">Died: {died || 'N/A'}</Text>
-                <Text justifyContent="flex-start" fontSize="1.2em">Mother: {mother || 'N/A'}</Text>
-                <Text justifyContent="flex-start" fontSize="1.2em">Father: {father || 'N/A'}</Text>
-                <Text justifyContent="flex-start" fontSize="1.2em">Played By: {playedBy || 'N/A'}</Text>
+                <Text justifyContent="flex-start" fontSize="1.2em">
+                    Mother: {' '}
+                    {
+                        motherName
+                            ?
+                            <Link to={`/characters/${motherId}/${convertName(motherName)}`}>
+                                {isEmpty(motherName)}
+                            </Link>
+                            :
+                            'N/A'
+                    }
+                </Text>
+                <Text justifyContent="flex-start" fontSize="1.2em">
+                    Father: {' '}
+                    {
+                        fatherName
+                            ?
+                            <Link to={`/characters/${fatherId}/${convertName(fatherName)}`}>
+                                {isEmpty(fatherName)}
+                            </Link>
+                            :
+                            'N/A'
+                    }
+                </Text>
+                <Text justifyContent="flex-start" fontSize="1.2em">Played By: {isEmpty(playedBy)}</Text>
             </ul>
         </Container >
     )
