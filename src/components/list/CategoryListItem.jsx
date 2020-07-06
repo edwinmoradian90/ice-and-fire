@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { convertName } from '../../utils/helpers'
 import { StyledLink } from '../../utils/styledComponents/main'
 import { CategoryItem, CategoryItemIcon } from '../../utils/styledComponents/category'
@@ -23,6 +24,14 @@ function CategoryListItem(props) {
             </CategoryItem>
         </StyledLink>
     )
+}
+
+const { string, array } = PropTypes
+CategoryListItem.propTypes = {
+    category: string.isRequired,
+    name: string,
+    aliases: array,
+    url: string
 }
 
 export default CategoryListItem

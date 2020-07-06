@@ -13,7 +13,7 @@ import { Loader } from '../../components/loading/Loader'
 const url = 'https://anapioficeandfire.com/api'
 
 
-function Main(props) {
+function Main() {
     const dispatch = useDispatch()
     const data = useSelector(state => state.mainReducer.data)
     const loading = useSelector(state => state.mainReducer.loading)

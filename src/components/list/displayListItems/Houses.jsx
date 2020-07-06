@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { convertName } from '../../../utils/helpers'
 import axios from 'axios'
@@ -123,4 +124,14 @@ export default function Houses(props) {
             </Text>
         </Container >
     )
+}
+
+const { string } = PropTypes
+Houses.propTypes = {
+    name: string,
+    founded: string,
+    founder: string,
+    currentLord: string,
+    heir: string,
+    region: string,
 }

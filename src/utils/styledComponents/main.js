@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import colors from '../../utils/colors'
 import { css } from '@emotion/core'
@@ -54,3 +55,18 @@ export const center = css`
     display: block;
     margin: 0 auto;
 `
+
+Container.propTypes = {
+    justifyContent: PropTypes.string,
+    alignItems: PropTypes.string,
+    height: PropTypes.string
+}
+
+Text.propTypes = {
+    display: PropTypes.string,
+    justifyContent: PropTypes.string,
+    fontSize: PropTypes.string,
+    color: PropTypes.string,
+    hColor: PropTypes.string,
+    cursor: PropTypes.string
+}

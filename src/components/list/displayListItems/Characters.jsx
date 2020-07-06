@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import { Container, Text } from '../../../utils/styledComponents/main'
 import { CategoryItemIcon } from '../../../utils/styledComponents/category'
 import { GiWingedSword } from 'react-icons/gi'
@@ -112,6 +113,18 @@ export default function Characters(props) {
                 </Text>
                 <Text justifyContent="flex-start" fontSize="1.2em">Played By: {isEmpty(playedBy)}</Text>
             </ul>
-        </Container >
+        </Container>
     )
+}
+
+const { string, array } = PropTypes
+Characters.propTypes = {
+    aliases: array,
+    gender: string,
+    mother: string,
+    father: string,
+    died: string,
+    born: string,
+    name: string,
+    playedBy: string
 }
