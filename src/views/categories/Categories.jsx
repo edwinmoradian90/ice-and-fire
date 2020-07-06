@@ -16,6 +16,7 @@ import { url } from '../../config/config'
 import { Container } from '../../utils/styledComponents/main'
 import { Loader } from '../../components/loading/Loader'
 import { Text } from '../../utils/styledComponents/main'
+import { wordFormatter } from '../../utils/helpers'
 
 function Categories(props) {
     const category = props.match.path
@@ -63,7 +64,7 @@ function Categories(props) {
             }
         })
 
-        axios.get(`${url}/${category}?page=${searchData
+        axios.get(`${url}/${category}?page=${wordFormatter(searchData)
             ? null
             : page
             }&pageSize=${pageSize}&name=${searchData}`)
