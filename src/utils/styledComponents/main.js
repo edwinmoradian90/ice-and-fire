@@ -1,9 +1,9 @@
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import colors from '../../utils/colors'
 import { css } from '@emotion/core'
 
-const { lightRed, red, darkRed, bloodRed, yellow } = colors
+const { red, darkRed, yellow } = colors
 
 const colorMatcher = color => colors[color]
 
@@ -36,7 +36,7 @@ export const Title = styled.h1`
     color: ${yellow};
     font-family: Got;
 `
-export const Text = styled.p`
+export const Text = styled.div`
     display: ${props => props.display || 'flex'};
     justify-content: ${props => props.justifyContent || 'center'};
     font-size: ${props => props.fontSize || '1.2em'};

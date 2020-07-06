@@ -6,9 +6,8 @@ import { GiWingedSword } from 'react-icons/gi'
 
 function CategoryListItem(props) {
     const { category } = props
-    const { name, numberOfPages, released, aliases, url } = props.item
+    const { name, aliases, url } = props.item
     const id = url.split('/')[url.split('/').length - 1]
-    console.log(id)
     let availableName = name ? name : aliases[0]
     const convertedName = convertName(availableName)
     const newUrl = `${category}/${id}/${convertedName}`

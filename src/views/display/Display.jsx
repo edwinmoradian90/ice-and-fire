@@ -12,7 +12,6 @@ import Houses from '../../components/list/displayListItems/Houses'
 import axios from 'axios'
 import { url } from '../../config/config'
 import { Loader } from '../../components/loading/Loader'
-import { Title } from '../../utils/styledComponents/main'
 
 function Display(props) {
     const dispatch = useDispatch()
@@ -20,8 +19,6 @@ function Display(props) {
     const items = useSelector(state => state.displayReducer.data) || ''
     const currentUrl = props.location.pathname.split(('/'))
     const apiUrl = `${url}/${currentUrl[1]}/${currentUrl[2]}`
-
-    console.log(currentUrl)
 
     useEffect(() => {
         dispatch({
@@ -51,8 +48,7 @@ function Display(props) {
                     }
                 })
             })
-    }, [apiUrl])
-    console.log(currentUrl[1])
+    }, [apiUrl, dispatch])
 
     return (
         <>

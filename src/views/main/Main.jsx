@@ -27,7 +27,6 @@ function Main(props) {
                         payload: res
                     })
                 }, 1500)
-                console.log(res)
             })
             .catch(err => {
                 dispatch({
@@ -35,9 +34,7 @@ function Main(props) {
                     payload: err
                 })
             })
-    }, [])
-
-    console.log(loading)
+    }, [dispatch])
 
     return (
         <div>

@@ -15,18 +15,15 @@ export default function Houses(props) {
     const {
         name,
         region,
-        titles,
         heir,
         founded,
         founder,
         currentLord,
-        swornMemebers
     } = props.items.data || 'loading...'
 
     const splitUrl = url => {
         if (url) {
             const newUrl = url.split('/')
-            console.log(newUrl[newUrl.length - 1])
             return newUrl[newUrl.length - 1]
         }
     }
@@ -68,7 +65,7 @@ export default function Houses(props) {
                 .catch(err => console.log(err))
         }
 
-    }, [currentLord, heir])
+    }, [currentLord, heir, founder])
 
     return (
         <Container
@@ -107,7 +104,7 @@ export default function Houses(props) {
                 )
             }
             <Text className="currentLord">
-                Current Lord: {' '}
+                Current Lord:
                 {currentLord
                     ?
                     (

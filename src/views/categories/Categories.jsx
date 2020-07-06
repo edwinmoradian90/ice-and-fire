@@ -15,7 +15,7 @@ import axios from 'axios'
 import { url } from '../../config/config'
 import { Container } from '../../utils/styledComponents/main'
 import { Loader } from '../../components/loading/Loader'
-import { Title, Text } from '../../utils/styledComponents/main'
+import { Text } from '../../utils/styledComponents/main'
 
 function Categories(props) {
     const category = props.match.path
@@ -68,7 +68,6 @@ function Categories(props) {
             : page
             }&pageSize=${pageSize}&name=${searchData}`)
             .then(res => {
-                console.log(res)
                 setTimeout(() => {
                     dispatch({
                         type: FETCH_CATEGORIES_SUCCESS,
@@ -89,7 +88,14 @@ function Categories(props) {
                     }
                 })
             })
-    }, [page, searchSubmitted, category])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [
+        page,
+        searchSubmitted,
+        category,
+        dispatch,
+        pageSize
+    ])
 
     return (
         <>
@@ -100,20 +106,30 @@ function Categories(props) {
                         <Header category={category} />
                         <Search />
                         {
-                            data.length !== 0 
-                            ? 
-                            <CategoryList
-                                data={data}
-                                category={category}
-                                searchData={searchData}
-                                noResults={noResults}
-                            />
-                            :
+                            data.length !== 0
+                                ?
+                                <CategoryList
+                                    data={data}
+                                    category={category}
+                                    searchData={searchData}
+                                    noResults={noResults}
+                                />
+                                :
                                 <>
                                     <Text>
                                         You know nothing, Jon Snow...
                                     </Text>
-                                    <iframe src="https://giphy.com/embed/13f5iwTRuiEjjW" width="100%" height="100%" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                                    <iframe
+                                        title="you know nothing"
+                                        src="https://giphy.com/embed/13f5iwTRuiEjjW"
+                                        width="100%"
+                                        height="100%"
+                                        frameBorder="0"
+                                        className="giphy-embed"
+                                        allowFullScreen
+                                    />
+
+
                                 </>
                         }
                         {

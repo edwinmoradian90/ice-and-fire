@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import colors from '../colors'
 
-const { red, yellow } = colors
+const { yellow } = colors
 
 export const SearchContainer = styled.div`
     height: 100px;

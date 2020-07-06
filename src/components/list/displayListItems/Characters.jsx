@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Container, Label, Text } from '../../../utils/styledComponents/main'
+import { Container, Text } from '../../../utils/styledComponents/main'
 import { CategoryItemIcon } from '../../../utils/styledComponents/category'
 import { GiWingedSword } from 'react-icons/gi'
 import { splitUrl, isEmpty, convertName } from '../../../utils/helpers'
@@ -13,7 +13,6 @@ export default function Characters(props) {
     const [fatherId, setFatherId] = useState('')
     const {
         aliases,
-        books,
         gender,
         name,
         born,

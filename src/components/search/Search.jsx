@@ -1,5 +1,5 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import {
     TYPING,
     SUBMIT,
@@ -8,10 +8,7 @@ import { SearchBar, SearchContainer, SearchButton } from '../../utils/styledComp
 
 export default function Search() {
     const dispatch = useDispatch()
-    const searchData = useSelector(state => state.searchReducer.searchData)
-    console.log(searchData)
     const onChange = (e) => {
-        console.log(e.target.value)
         dispatch({
             type: TYPING,
             payload: {
