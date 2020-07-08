@@ -21,7 +21,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -40,6 +40,8 @@
     ]
   },
   "devDependencies": {
-    "@testing-library/react": "^9.5.0"
+    "@testing-library/react": "^9.5.0",
+    "jest": "^26.1.0",
+    "react-test-renderer": "^16.13.1"
   }
 }
