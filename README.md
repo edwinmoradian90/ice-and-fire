@@ -4,6 +4,8 @@ A web application forged out of valerian steel, made by Edwin Moradian, first of
 More specifically, this web application serves as a hub for searching and finding information 
 regarding Game of Thrones books, characters, or houses. It is built with React, Redux, and Styled components.
 
+View the project [here](https://inspiring-mclean-269033.netlify.app).
+
 ### Installing
 
 To install locally, just download the repo.
@@ -62,4 +64,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* API of Ice and Fire
+* [API of Ice and Fire](https://anapioficeandfire.com/Documentation)
