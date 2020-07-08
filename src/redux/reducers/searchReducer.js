@@ -13,7 +13,6 @@ export default function searchReducer(state = initialState, action) {
     switch (action.type) {
         case TYPING:
             const { searchData } = action.payload
-            console.log(searchData)
             return {
                 ...state,
                 searchSubmitted: false,

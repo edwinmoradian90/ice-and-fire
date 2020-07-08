@@ -1,69 +1,67 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Ice and Fire
 
-## Available Scripts
+A web application forged out of valerian steel, made by Edwin Moradian, first of his name.
+More specifically, this web application serves as a hub for searching and finding information 
+regarding Game of Thrones books, characters, or houses. It is built with React, Redux, and Styled components.
 
-In the project directory, you can run:
+View the project [here](https://inspiring-mclean-269033.netlify.app).
 
-### `yarn start`
+### Installing
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To install locally, just download the repo.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+```bash 
+$ git clone https://github.com/edwinmoradian90/ice-and-fire
+```
 
-### `yarn test`
+Then install the neccessary dependencies.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+$ npm install
+```
 
-### `yarn build`
+Finally, run the development server. 
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+$ npm start
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+The default port is 3000.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Running the tests
 
-### `yarn eject`
+Explain how to run the automated tests for this system
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Break down into end to end tests
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Explain what these tests test and why
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+Give an example
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### And coding style tests
 
-## Learn More
+Explain what these tests test and why
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+Give an example
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Built With
 
-### Code Splitting
+* [React](https://reactjs.org/docs/getting-started.html) - The web framework used
+* [Redux](https://redux.js.org/introduction/getting-started) - State Management
+* [Styled Components](https://styled-components.com/docs) - Used to style components
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Authors
 
-### Analyzing the Bundle Size
+**Edwin Moradian** [Github](https://github.com/edwinmoradian90) | [Portfolio](edwin-moradian.firebaseapp.com)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## License
 
-### Making a Progressive Web App
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## Acknowledgments
 
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-# ice-and-fire
+* [API of Ice and Fire](https://anapioficeandfire.com/Documentation)

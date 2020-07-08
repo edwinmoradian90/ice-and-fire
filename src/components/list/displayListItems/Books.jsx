@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Container, Text } from '../../../utils/styledComponents/main'
 
 export default function Books(props) {
@@ -54,4 +55,14 @@ export default function Books(props) {
             </ul>
         </Container>
     )
+}
+
+const { number, string, array } = PropTypes
+Books.propTypes = {
+    name: string,
+    authors: array,
+    numberOfPages: number,
+    publisher: string,
+    country: string,
+    released: string
 }

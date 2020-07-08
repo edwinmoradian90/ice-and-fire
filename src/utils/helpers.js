@@ -23,3 +23,17 @@ export const isEmpty = item => {
     }
     return item
 }
+
+export const wordFormatter = input => {
+    if (input) {
+        let capitalizedInput = []
+        const words = input.split(' ')
+        words.forEach(
+            word => capitalizedInput.push(
+                `${word.charAt(0).toUpperCase()}${word.slice(1)} `
+            )
+        )
+        console.log(capitalizedInput.join(''))
+        return capitalizedInput.join('')
+    }
+}

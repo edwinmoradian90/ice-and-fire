@@ -9,7 +9,6 @@ const initialState = {
 export default function mainReducer(state = initialState, action) {
     switch (action.type) {
         case FETCH_MAIN_REQUEST:
-            console.log('requested')
             return {
                 ...state,
                 loading: true

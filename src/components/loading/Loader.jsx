@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import {
     Text,
     Title,
@@ -27,4 +28,8 @@ export function Loader(props) {
             </LoadingContainer>
         </Container>
     )
+}
+
+Loader.propTypes = {
+    loading: PropTypes.bool
 }

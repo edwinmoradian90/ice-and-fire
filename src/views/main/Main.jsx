@@ -13,7 +13,7 @@ import { Loader } from '../../components/loading/Loader'
 const url = 'https://anapioficeandfire.com/api'
 
 
-function Main(props) {
+function Main() {
     const dispatch = useDispatch()
     const data = useSelector(state => state.mainReducer.data)
     const loading = useSelector(state => state.mainReducer.loading)
@@ -27,7 +27,6 @@ function Main(props) {
                         payload: res
                     })
                 }, 1500)
-                console.log(res)
             })
             .catch(err => {
                 dispatch({
@@ -35,9 +34,7 @@ function Main(props) {
                     payload: err
                 })
             })
-    }, [])
-
-    console.log(loading)
+    }, [dispatch])
 
     return (
         <div>

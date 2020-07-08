@@ -1,22 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { StyledLink, Title } from '../../utils/styledComponents/main'
 
 function Header(props) {
-    const { category } = props
-    const [title, setTitle] = useState('Ice and Fire')
-    const [categoryName, setCategoryName] = useState('')
-    const [showSearch, setShowSearch] = useState(true)
-
-    useEffect(() => {
-        if (category) {
-            setCategoryName(category)
-        }
-    }, [category])
 
     return (
         <div className="header">
             <StyledLink to='/'>
-                <Title className="appTitle">{title}</Title>
+                <Title className="appTitle">Ice and Fire</Title>
             </StyledLink>
         </div>
     )

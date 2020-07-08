@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { convertName } from '../../../utils/helpers'
 import axios from 'axios'
@@ -15,18 +16,15 @@ export default function Houses(props) {
     const {
         name,
         region,
-        titles,
         heir,
         founded,
         founder,
         currentLord,
-        swornMemebers
     } = props.items.data || 'loading...'
 
     const splitUrl = url => {
         if (url) {
             const newUrl = url.split('/')
-            console.log(newUrl[newUrl.length - 1])
             return newUrl[newUrl.length - 1]
         }
     }
@@ -68,7 +66,7 @@ export default function Houses(props) {
                 .catch(err => console.log(err))
         }
 
-    }, [currentLord, heir])
+    }, [currentLord, heir, founder])
 
     return (
         <Container
@@ -107,7 +105,7 @@ export default function Houses(props) {
                 )
             }
             <Text className="currentLord">
-                Current Lord: {' '}
+                Current Lord:
                 {currentLord
                     ?
                     (
@@ -126,4 +124,14 @@ export default function Houses(props) {
             </Text>
         </Container >
     )
+}
+
+const { string } = PropTypes
+Houses.propTypes = {
+    name: string,
+    founded: string,
+    founder: string,
+    currentLord: string,
+    heir: string,
+    region: string,
 }
