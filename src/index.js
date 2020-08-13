@@ -11,10 +11,8 @@ const middlewares = [thunk]
 const store = createStore(rootReducer, applyMiddleware(...middlewares))
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <App />
+  </Provider >,
   document.getElementById('root')
 )
