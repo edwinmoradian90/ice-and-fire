@@ -38,6 +38,6 @@ html {
 
 @font-face{
 	font-family: 'Got';
-	src: url(fonts/Got.ttf) format('truetype');
+	src: url('fonts/Got.ttf') format('truetype');
 
 }
