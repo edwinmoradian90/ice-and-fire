@@ -1,26 +1,7 @@
-/* eslint-disable order-alphabetical */
-/* eslint-disable bulletproof-font-face */
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+body, html {
+	border: 0;
 	margin: 0;
 	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-	list-style: none;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -47,8 +28,8 @@ table {
 }
 
 html {
-	min-height: calc(100vh - 100px);
 	background: #64000d;
+	min-height: calc(100vh - 100px);
 }
 
 .d_none {
@@ -57,5 +38,6 @@ html {
 
 @font-face{
 	font-family: 'Got';
-	src: url(fonts/Got.ttf);
+	src: url(fonts/Got.ttf) format('truetype');
+
 }
