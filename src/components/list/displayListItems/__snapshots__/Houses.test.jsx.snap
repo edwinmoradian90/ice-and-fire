@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Houses renders correctly 1`] = `
+<div
+  className="sc-AxirZ lmlOFf houses"
+  height="100vh"
+>
+  <div
+    className="sc-AxhUy fClwJB name"
+  >
+    House name: 
+    someone
+  </div>
+  <div
+    className="sc-AxhUy fClwJB region"
+  >
+    House region: 
+    somewhere
+  </div>
+  <div
+    className="sc-AxhUy fClwJB founder"
+  >
+    <p
+      className="founderName"
+    >
+      House Founder: 
+      N/A
+    </p>
+  </div>
+  <div
+    className="sc-AxhUy fClwJB founded"
+  >
+    Founded During: 
+    sometime
+  </div>
+  <div
+    className="sc-AxhUy fClwJB heirName"
+  >
+     House heir: N/A
+  </div>
+  <div
+    className="sc-AxhUy fClwJB currentLord"
+  >
+    Current Lord:
+    <a
+      className="currentLordName"
+      href="/characters//"
+      onClick={[Function]}
+    >
+      loading...
+    </a>
+  </div>
+</div>
+`;

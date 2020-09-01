@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main List renders properly 1`] = `
+Array [
+  <div>
+    <a
+      className="sc-AxjAm irMvbk listItem"
+      href="/books"
+      onClick={[Function]}
+    >
+      <div
+        className="sc-AxhUy ilDfEv itemTitle"
+      >
+        books
+      </div>
+    </a>
+  </div>,
+  <div>
+    <a
+      className="sc-AxjAm irMvbk listItem"
+      href="/characters"
+      onClick={[Function]}
+    >
+      <div
+        className="sc-AxhUy ilDfEv itemTitle"
+      >
+        characters
+      </div>
+    </a>
+  </div>,
+  <div>
+    <a
+      className="sc-AxjAm irMvbk listItem"
+      href="/houses"
+      onClick={[Function]}
+    >
+      <div
+        className="sc-AxhUy ilDfEv itemTitle"
+      >
+        houses
+      </div>
+    </a>
+  </div>,
+]
+`;

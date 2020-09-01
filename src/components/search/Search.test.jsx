@@ -34,6 +34,4 @@ describe('Search component', () => {
     it('should have input placeholder', () => {
         expect(tree.children[0].props.placeholder).toContain('Search By Name');
     });
-
-    console.log(tree.children[1])
 });

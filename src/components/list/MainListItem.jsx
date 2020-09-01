@@ -3,6 +3,7 @@ import { StyledLink, Text } from '../../utils/styledComponents/main'
 
 function MainListItem(props) {
     const item = props.item
+    console.log(item, 'item')
     return (
         <>
             {

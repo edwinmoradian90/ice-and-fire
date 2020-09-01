@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loader component functions 1`] = `
+<div
+  className="sc-AxirZ jRTNxu loading"
+>
+  <h1
+    className="sc-AxhCb kYEhcE"
+  >
+    Ice and Fire
+  </h1>
+  <div
+    className="sc-AxiKw iwLqeu"
+  >
+    <div
+      className="sc-AxhUy fClwJB loadingText"
+    >
+      Loading...
+    </div>
+    <div
+      className="css-19n5wh0"
+    />
+  </div>
+</div>
+`;

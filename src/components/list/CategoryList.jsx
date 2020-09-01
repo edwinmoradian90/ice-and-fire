@@ -6,7 +6,6 @@ function CategoryList(props) {
     const pageSize = useSelector(state => state.categoriesReducer.pageSize)
     const page = useSelector(state => state.categoriesReducer.page)
     const { data, category, getId } = props
-
     return (
         <>
             {data.map((item, i) => {

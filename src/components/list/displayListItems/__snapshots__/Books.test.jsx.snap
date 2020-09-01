@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Books renderers correctly 1`] = `
+<div
+  className="sc-AxirZ jRTNxu"
+>
+  <ul>
+    <li
+      className="bookName"
+    >
+      <div
+        className="sc-AxhUy yLbuM"
+      >
+        Name: 
+        test
+      </div>
+    </li>
+    <li
+      className="author"
+    >
+      <div
+        className="sc-AxhUy yLbuM"
+      >
+        Author: 
+        someone
+      </div>
+    </li>
+    <li
+      className="numberOfPages"
+    >
+      <div
+        className="sc-AxhUy yLbuM"
+      >
+        Number Of Pages: 
+        9000
+         pages
+      </div>
+    </li>
+    <li
+      className="publisher"
+    >
+      <div
+        className="sc-AxhUy yLbuM"
+      >
+        Published by: 
+        someone
+      </div>
+    </li>
+    <li
+      className="country"
+    >
+      <div
+        className="sc-AxhUy yLbuM"
+      >
+        Published at: 
+        somewhere
+      </div>
+    </li>
+    <li
+      className="released"
+    >
+      <div
+        className="sc-AxhUy yLbuM"
+      >
+        Release Date: 
+        sometime
+      </div>
+    </li>
+  </ul>
+</div>
+`;
