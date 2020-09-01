@@ -27,6 +27,7 @@ function Categories(props) {
     const pageSize = useSelector(state => state.categoriesReducer.pageSize)
     const searchData = useSelector(state => state.searchReducer.searchData)
     const searchSubmitted = useSelector(state => state.searchReducer.searchSubmitted)
+    console.log(props)
 
     const nextPage = () => {
         dispatch({
