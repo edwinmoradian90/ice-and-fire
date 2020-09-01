@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import MainListItem from './MainListItem'
 
 function MainList(props) {
@@ -14,6 +15,10 @@ function MainList(props) {
             }
         </>
     )
+}
+
+MainList.propTypes = {
+    data: PropTypes.object,
 }
 
 export default MainList

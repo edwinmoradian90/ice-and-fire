@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyledLink, Title } from '../../utils/styledComponents/main'
 
-function Header(props) {
+function Header() {
 
     return (
         <div className="header">

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import PropTypes from 'prop-types'
 import { useDispatch, useSelector } from 'react-redux'
 import {
     FETCH_CATEGORIES_REQUEST,
@@ -27,7 +28,6 @@ function Categories(props) {
     const pageSize = useSelector(state => state.categoriesReducer.pageSize)
     const searchData = useSelector(state => state.searchReducer.searchData)
     const searchSubmitted = useSelector(state => state.searchReducer.searchSubmitted)
-    console.log(props)
 
     const nextPage = () => {
         dispatch({
@@ -176,6 +176,12 @@ function Categories(props) {
             }
         </>
     )
+}
+
+Categories.propTypes = {
+    match: PropTypes.shape({
+        path: PropTypes.string.isRequired,
+    })
 }
 
 export default Categories

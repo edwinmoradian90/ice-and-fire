@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
+import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { Container } from '../../utils/styledComponents/main'
-import axios from 'axios'
 import Header from '../../components/header/Header'
 import MainList from '../../components/list/MainList'
 import {
@@ -50,8 +50,7 @@ function Main() {
                                 justifyContent='flex-start'
                             >
                                 <MainList
-                                    loading={loading}
-                                    data={data || []}
+                                    data={data}
                                 />
                             </Container>
                         </>

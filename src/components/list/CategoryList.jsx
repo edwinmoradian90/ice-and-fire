@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 import CategoryListItem from './CategoryListItem'
 import { useSelector } from 'react-redux'
 
@@ -26,6 +27,12 @@ function CategoryList(props) {
             })}
         </>
     )
+}
+
+CategoryList.propTypes = {
+    data: PropTypes.array.isRequired,
+    category: PropTypes.string.isRequired,
+    getId: PropTypes.func,
 }
 
 export default CategoryList
