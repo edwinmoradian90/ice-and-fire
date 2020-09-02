@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Returns snapshot and application text 1`] = `
+<div
+  className="header"
+>
+  <a
+    className="sc-AxjAm irMvbk"
+    href="/"
+    onClick={[Function]}
+  >
+    <h1
+      className="sc-AxhCb kYEhcE appTitle"
+    >
+      Ice and Fire
+    </h1>
+  </a>
+</div>
+`;

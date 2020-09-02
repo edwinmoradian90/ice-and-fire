@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { StyledLink, Text } from '../../utils/styledComponents/main'
 
 function MainListItem(props) {
@@ -19,6 +20,10 @@ function MainListItem(props) {
             }
         </>
     )
+}
+
+MainListItem.propTypes = {
+    item: PropTypes.string.isRequired,
 }
 
 export default MainListItem

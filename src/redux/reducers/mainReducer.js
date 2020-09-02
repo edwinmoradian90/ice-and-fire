@@ -2,7 +2,7 @@ import { FETCH_MAIN_REQUEST, FETCH_MAIN_SUCCESS, FETCH_MAIN_FAILURE } from '../c
 
 const initialState = {
     loading: false,
-    data: [],
+    data: {},
     error: ''
 }
 
@@ -24,7 +24,7 @@ export default function mainReducer(state = initialState, action) {
             return {
                 ...state,
                 loading: false,
-                data: [],
+                data: {},
                 error: action.payload
             }
         default:
