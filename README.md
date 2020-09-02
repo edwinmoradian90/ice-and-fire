@@ -6,6 +6,11 @@ regarding Game of Thrones books, characters, or houses. It is built with React, 
 
 View the project [here](https://inspiring-mclean-269033.netlify.app).
 
+<img src="./src/images/screenshots/mobile-ice-and-fire-main.png"/>
+<img src="./src/images/screenshots/mobile-ice-and-fire-loading.png"/>
+<img src="./src/images/screenshots/mobile-ice-and-fire-categories.png"/>
+<img src="./src/images/screenshots/mobile-ice-and-fire-display.png"/>
+
 ### Installing
 
 To install locally, just download the repo.
@@ -30,22 +35,10 @@ The default port is 3000.
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+In the terminal, run the following:
 
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
+```bash
+$ npm test
 ```
 
 ## Built With
@@ -56,7 +49,7 @@ Give an example
 
 ## Authors
 
-**Edwin Moradian** [Github](https://github.com/edwinmoradian90) | [Portfolio](edwin-moradian.firebaseapp.com)
+**Edwin Moradian** [Github](https://github.com/edwinmoradian90) | [LinkedIn](https://linkedin.com/in/edwin-moradian) | [Portfolio](edwin-moradian.firebaseapp.com)
 
 ## License
 
